@@ -1,90 +1,110 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
 </head>
+<style>
+  table,td{
+    background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  
 
-<body>
-  <H3>Mahib Rana Magar 22067423</H3>
-<table id="sampleTable" border="1"> 
-  <tr>
-    <td>Row1 Col1</td> 
-    <td>Row1 Col2</td>
-  </tr> 
-  <tr>
-    <td>Row2 Col1</td> 
-    <td>Row2 Col2</td>
-  </tr> 
-    <tr>
-    <td>Row3 Col1</td> 
-    <td>Row3 Col2</td>
-  </tr> 
-    <tr>
-    <td>Row4 Col1</td> 
-    <td>Row4 Col2</td>
-  </tr> 
-    <tr>
-    <td>Row5 Col1</td> 
-    <td>Row5 Col2</td>
-  </tr> 
-</table><br> 
-<input type="button" onclick="insertRowBottom()" value="Insert row">  
-<input type="button" onclick="deleteRowTop()" value="delete row">
-<input type="button" onclick="deleteRowBottom()" value="delete row bottom"> 
-
-<p id="deleteError" class="error"> </p>
-
-</br>
-<script>
-  var numberOfRow=5;
-function insertRowBottom(){
-    numberOfRow+=1
-    table=document.getElementById("sampleTable");
-      row = table.insertRow(-1);
-    row.insertCell(0).innerHTML = "Row"+(numberOfRow)+" Col1";
-  row.insertCell(1).innerHTML = "Row"+(numberOfRow)+" Col2";
-
-  if(table.rows.length>0){
-    noRowError=""
   }
-  document.getElementById("deleteError").innerHTML = "Message: "+ noRowError
-    }
+  .lab{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  padding: 10px;
+  }
+</style>
+<body>
+  <div class="lab">
+    <H3>Mahib Rana Magar: 22067423</H3>
+    <table id="sampleTable" border="1">
+      <tr>
+        <td>Row1 Col1</td>
+        <td>Row1 Col2</td>
+      </tr>
+      <tr>
+        <td>Row2 Col1</td>
+        <td>Row2 Col2</td>
+      </tr>
+      <tr>
+        <td>Row3 Col1</td>
+        <td>Row3 Col2</td>
+      </tr>
+      <tr>
+        <td>Row4 Col1</td>
+        <td>Row4 Col2</td>
+      </tr>
+      <tr>
+        <td>Row5 Col1</td>
+        <td>Row5 Col2</td>
+      </tr>
+    </table><br>
+    <input type="button" onclick="insertRowBottom()" value="Insert row">
+    <input type="button" onclick="deleteRowTop()" value="delete row">
+    <input type="button" onclick="deleteRowBottom()" value="delete row bottom">
+  
+    <p id="deleteError" class="error"> </p>
   
     
-   
- 
-   function deleteRowTop(){
-    let noRowError=""
-    table=document.getElementById("sampleTable");
-    if(table.rows.length==0){
-      noRowError="NO MORE ROWS TO DELETE"
-      
+  </div>
+</br>
+  <script>
+    var numberOfRow = 5;
+    function insertRowBottom() {
+      numberOfRow += 1
+      table = document.getElementById("sampleTable");
+      row = table.insertRow(-1);
+      row.insertCell(0).innerHTML = "Row" + (numberOfRow) + " Col1";
+      row.insertCell(1).innerHTML = "Row" + (numberOfRow) + " Col2";
+
+      if (table.rows.length > 0) {
+        noRowError = ""
+      }
+      document.getElementById("deleteError").innerHTML = "Message: " + noRowError
     }
-   else{
-    noRowError=""
-    table.deleteRow(0)
-   }
-   document.getElementById("deleteError").innerHTML = "Message: "+ noRowError
-   
-  }
 
-  function deleteRowBottom(){
-    let noRowError=""
-    table=document.getElementById("sampleTable");
-    if(table.rows.length==0){
-      noRowError="NO MORE ROWS TO DELETE"
-      
+
+
+    function deleteRowTop() {
+      let noRowError = ""
+      table = document.getElementById("sampleTable");
+      if (table.rows.length == 0) {
+        noRowError = "NO MORE ROWS TO DELETE"
+
+      }
+      else {
+        noRowError = ""
+        table.deleteRow(0)
+      }
+      document.getElementById("deleteError").innerHTML = "Message: " + noRowError
+
     }
-   else{
-    noRowError=""
-    table.deleteRow(-1)
-   }
-   document.getElementById("deleteError").innerHTML = "Message: "+ noRowError
-   
 
-  }
-    
+    function deleteRowBottom() {
+      let noRowError = ""
+      table = document.getElementById("sampleTable");
+      if (table.rows.length == 0) {
+        noRowError = "NO MORE ROWS TO DELETE"
+
+      }
+      else {
+        noRowError = ""
+        table.deleteRow(-1)
+      }
+      document.getElementById("deleteError").innerHTML = "Message: " + noRowError
 
 
-</script>
+    }
+
+
+
+  </script>
 </body>
+
 </html>
