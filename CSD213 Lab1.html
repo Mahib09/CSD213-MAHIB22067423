@@ -28,7 +28,10 @@
   </tr> 
 </table><br> 
 <input type="button" onclick="insertRowBottom()" value="Insert row">  
-<input type="button" onclick="deleteRowTop()" value="delete row">  
+<input type="button" onclick="deleteRowTop()" value="delete row"> 
+<p>Message: </p>
+<p id="deleteError" class="error"> </p>
+
 </br>
 <script>
 function insertRowBottom(){
@@ -39,9 +42,19 @@ function insertRowBottom(){
   row.insertCell(1).innerHTML = "Row"+(numberOfRow+1)+" Col2";
   }
    function deleteRowTop(){
+    let noRowError=""
     table=document.getElementById("sampleTable");
+    if(table.rows.length==0){
+      noRowError="NO MORE ROWS TO DELETE"
+      
+    }
+   else{
+    
     table.deleteRow(0)
    }
+   document.getElementById("deleteError").innerHTML = noRowError
+  }
+    
 
 
 </script>
