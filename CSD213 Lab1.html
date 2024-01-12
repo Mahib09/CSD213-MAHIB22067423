@@ -29,18 +29,22 @@
 </table><br> 
 <input type="button" onclick="insertRowBottom()" value="Insert row">  
 <input type="button" onclick="deleteRowTop()" value="delete row"> 
-<p>Message: </p>
 <p id="deleteError" class="error"> </p>
 
 </br>
 <script>
 function insertRowBottom(){
-  table=document.getElementById("sampleTable");
+    table=document.getElementById("sampleTable");
   numberOfRow=table.rows.length;
     row = table.insertRow(-1);
     row.insertCell(0).innerHTML = "Row"+(numberOfRow+1)+" Col1";
   row.insertCell(1).innerHTML = "Row"+(numberOfRow+1)+" Col2";
+  if(table.rows.length>0){
+    noRowError=""
   }
+  document.getElementById("deleteError").innerHTML = "Message: "+ noRowError
+  }
+ 
    function deleteRowTop(){
     let noRowError=""
     table=document.getElementById("sampleTable");
@@ -49,10 +53,11 @@ function insertRowBottom(){
       
     }
    else{
-    
+    noRowError=""
     table.deleteRow(0)
    }
-   document.getElementById("deleteError").innerHTML = noRowError
+   document.getElementById("deleteError").innerHTML = "Message: "+ noRowError
+   
   }
     
 
