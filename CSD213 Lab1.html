@@ -38,10 +38,10 @@ function insertRowBottom(){
     row.insertCell(0).innerHTML = "Row"+(numberOfRow+1)+" Col1";
   row.insertCell(1).innerHTML = "Row"+(numberOfRow+1)+" Col2";
   }
-  function deleteRowTop(){
+   function deleteRowTop(){
     table=document.getElementById("sampleTable");
-    table.deleteRow(0)
-  }
+    row = table.insertRow(0);
+   }
 
 
 </script>
