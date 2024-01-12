@@ -28,22 +28,29 @@
   </tr> 
 </table><br> 
 <input type="button" onclick="insertRowBottom()" value="Insert row">  
-<input type="button" onclick="deleteRowTop()" value="delete row"> 
+<input type="button" onclick="deleteRowTop()" value="delete row">
+<input type="button" onclick="deleteRowBottom()" value="delete row bottom"> 
+
 <p id="deleteError" class="error"> </p>
 
 </br>
 <script>
+  var numberOfRow=5;
 function insertRowBottom(){
+    numberOfRow+=1
     table=document.getElementById("sampleTable");
-  numberOfRow=table.rows.length;
-    row = table.insertRow(-1);
-    row.insertCell(0).innerHTML = "Row"+(numberOfRow+1)+" Col1";
-  row.insertCell(1).innerHTML = "Row"+(numberOfRow+1)+" Col2";
+      row = table.insertRow(-1);
+    row.insertCell(0).innerHTML = "Row"+(numberOfRow)+" Col1";
+  row.insertCell(1).innerHTML = "Row"+(numberOfRow)+" Col2";
+
   if(table.rows.length>0){
     noRowError=""
   }
   document.getElementById("deleteError").innerHTML = "Message: "+ noRowError
-  }
+    }
+  
+    
+   
  
    function deleteRowTop(){
     let noRowError=""
@@ -58,6 +65,22 @@ function insertRowBottom(){
    }
    document.getElementById("deleteError").innerHTML = "Message: "+ noRowError
    
+  }
+
+  function deleteRowBottom(){
+    let noRowError=""
+    table=document.getElementById("sampleTable");
+    if(table.rows.length==0){
+      noRowError="NO MORE ROWS TO DELETE"
+      
+    }
+   else{
+    noRowError=""
+    table.deleteRow(-1)
+   }
+   document.getElementById("deleteError").innerHTML = "Message: "+ noRowError
+   
+
   }
     
 
